@@ -1,0 +1,24 @@
+replicaCount: 1
+
+image:
+  repository: mariadb
+  pullPolicy: IfNotPresent
+  tag: "10.9.4"
+
+service:
+  type: ClusterIP
+  port: 3306
+
+ingress:
+  enabled: false
+
+global:
+  database:
+    configmap:
+      name: mariadb-config
+      db_url: db-chart-mariadb
+    secret:
+      name: mariadb-secret
+      type: Opaque 
+      user: root
+      password: password
