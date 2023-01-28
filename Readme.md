@@ -24,13 +24,17 @@ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.17.0/kind-linux-amd64
 chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 ```
-
 Add Autocompletion for kind to bash with  
 ```
-echo 'source <(kind completion bash) >> /etc/bash.bashrc
+echo 'source <(kind completion bash)' >> /etc/bash.bashrc
 ```
-
 Start a cluster with
 ```
 kind create [CLUSTERNAME, default= kind]
+```
+
+## Add helm repos
+```
+helm repo add bitnami https://charts.bitnami.com/bitnami                
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 ```
