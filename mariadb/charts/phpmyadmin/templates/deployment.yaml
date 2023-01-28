@@ -19,7 +19,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: http
+            - name: phpmyadmin
               containerPort: 80
               protocol: TCP
           env:
@@ -27,9 +27,19 @@ spec:
             valueFrom:
               configMapKeyRef:
                 name: {{ .Values.global.database.configmap.name }}
-                key: {{ .Values.global.database.configmap.db_url }}
+                key: db_url
+          - name: MARIADB_USER
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.global.database.secret.name }}
+                key: db_user
+          - name: MARIADB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.global.database.secret.name }}
+                key: db_password
           - name: MARIADB_ROOT_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: {{ .Values.global.database.secret.name }}
-                key: {{ .Values.global.database.secret.password }}
+                key: db_root_password
