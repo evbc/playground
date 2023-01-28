@@ -16,9 +16,10 @@ global:
   database:
     configmap:
       name: mariadb-config
-      db_url: db-chart-mariadb
+      db_url: mariadb
     secret:
       name: mariadb-secret
       type: Opaque 
-      user: root
-      password: password
+      db_user: ZGJ1c2Vy
+      db_password: cGFzc3dvcmQ=
+      db_root_password: c2VjcmV0cGFzcw==
