@@ -32,6 +32,7 @@ Start a cluster with
 ```
 kind create [CLUSTERNAME, default= kind]
 ```
+Use the provided kindMultiNodeCluster.yml with option '--config' to automatically create a 3 node cluster, 1 control-plane and two worker nodes
 
 ## Add helm repos
 ```
