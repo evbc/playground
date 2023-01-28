@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: {{ .Values.global.database.configmap.name }}
 data:
-  db_url: {{ .Values.global.database.configmap.db_url }}
+  db_url: {{ .Release.Name }}-{{ .Values.global.database.configmap.db_url }}
