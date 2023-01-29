@@ -23,23 +23,27 @@ spec:
               containerPort: 80
               protocol: TCP
           env:
+          {{ if .Values.database.configmap }}
           - name: PMA_HOST
             valueFrom:
               configMapKeyRef:
-                name: {{ .Values.global.database.configmap.name }}
+                name: {{ .Values.database.configmap }}
                 key: db_url
+          {{ end }}
+          {{ if .Values.database.secret }}
           - name: MARIADB_USER
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.global.database.secret.name }}
+                name: {{ .Values.database.secret }}
                 key: db_user
           - name: MARIADB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.global.database.secret.name }}
+                name: {{ .Values.database.secret }}
                 key: db_password
           - name: MARIADB_ROOT_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.global.database.secret.name }}
+                name: {{ .Values.database.secret }}
                 key: db_root_password
+          {{ end }}

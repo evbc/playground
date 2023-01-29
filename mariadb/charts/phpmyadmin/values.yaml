@@ -12,3 +12,7 @@ service:
 
 ingress:
   enabled: false
+
+database:
+  configmap: 
+  secret: 

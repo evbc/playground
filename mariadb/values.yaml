@@ -12,14 +12,18 @@ service:
 ingress:
   enabled: false
 
-global:
+phpmyadmin:
   database:
-    configmap:
-      name: mariadb-config
-      db_url: mariadb
-    secret:
-      name: mariadb-secret
-      type: Opaque 
-      db_user: ZGJ1c2Vy
-      db_password: cGFzc3dvcmQ=
-      db_root_password: c2VjcmV0cGFzcw==
+    configmap: mariadb-config
+    secret: mariadb-secret
+
+database:
+  configmap:
+    name: mariadb-config
+    db_url: mariadb
+  secret:
+    name: mariadb-secret
+    type: Opaque 
+    db_user: ZGJ1c2Vy
+    db_password: cGFzc3dvcmQ=
+    db_root_password: c2VjcmV0cGFzcw==
