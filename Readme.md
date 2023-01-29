@@ -34,6 +34,9 @@ kind create [CLUSTERNAME, default= kind]
 ```
 Use the provided kindMultiNodeCluster.yml with option '--config' to automatically create a 3 node cluster, 1 control-plane and two worker nodes
 
+![out](https://user-images.githubusercontent.com/123601944/215346448-a9f5d26f-7110-4d7b-a77c-a0a2053fa426.gif)
+
+
 ## Add helm repos
 ```
 helm repo add bitnami https://charts.bitnami.com/bitnami                
