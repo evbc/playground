@@ -1,0 +1,29 @@
+replicaCount: 1
+
+image:
+  repository: mariadb
+  pullPolicy: IfNotPresent
+  tag: "10.9.4"
+
+service:
+  type: ClusterIP
+  port: 3306
+
+ingress:
+  enabled: false
+
+phpmyadmin:
+  database:
+    configmap: mariadb-config
+    secret: mariadb-secret
+
+database:
+  configmap:
+    name: mariadb-config
+    db_url: mariadb
+  secret:
+    name: mariadb-secret
+    type: Opaque 
+    db_user: ZGJ1c2Vy
+    db_password: cGFzc3dvcmQ=
+    db_root_password: c2VjcmV0cGFzcw==
