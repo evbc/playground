@@ -42,3 +42,4 @@ Use the provided kindMultiNodeCluster.yml with option '--config' to automaticall
 helm repo add bitnami https://charts.bitnami.com/bitnami                
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 ```
+Yasin war hier
