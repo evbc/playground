@@ -47,3 +47,10 @@ spec:
               secretKeyRef:
                 name: {{ .Values.database.secret.name }}
                 key: db_root_password
+          volumeMounts:
+          - name: {{ .Values.volume.name }}
+            mountPath: {{ .Values.volume.mountPath }}
+      volumes:
+      - name: {{ .Values.volume.name }}
+        persistentVolumeClaim:
+          claimName: {{ .Values.volume.claim.name }}

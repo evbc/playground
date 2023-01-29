@@ -1,0 +1,8 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: {{ .Values.volume.storageClass.name }}
+  namespace: {{ .Release.Namespace }}
+provisioner: {{ .Values.volume.storageClass.provisioner }}
+parameters:
+  type: {{ .Values.volume.storageClass.type }}

@@ -27,3 +27,18 @@ database:
     db_user: ZGJ1c2Vy
     db_password: cGFzc3dvcmQ=
     db_root_password: c2VjcmV0cGFzcw==
+
+volume:
+  name: mariadb-data
+  mountPath: /var/lib/mysql
+  capacity: 2Gi
+  accessMode: ReadWriteOnce
+  hostPath: /mnt/mariadb-data
+  storageClass:
+    name: mariadb-storage
+    provisioner: kubernetes.io/gce-pd
+    type: pd-standard
+  claim:
+    name: mariadb-volume
+    accessMode: ReadWriteOnce
+    storageSize: 1Gi
