@@ -1,0 +1,15 @@
+apiVersion: v2
+name: databasetest
+description: mongo database & mongo-express, using a single helm chart instead of 2 for rollout
+# thinking about including the monitoring stack as well
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
+dependencies:
+- name: mongodb
+  version: 13.6.6
+  repository: https://charts.bitnami.com/bitnami
+# Only mongo express chart out there on artifacthub, though being an unofficial one, I doubt building my own chart for it would go anywhere today
+- name: mongo-express
+  version: 2.8.4
+  repository: https://cowboysysop.github.io/charts/
